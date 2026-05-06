@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don | Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F4EF;
+    --ink: #1A1A18;
+    --mid: #5A5A55;
+    --accent: #2B5CE6;
+    --accent-light: #EBF0FF;
+    --border: #E2DDD6;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 5%;
+    background: rgba(247, 244, 239, 0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--mid);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 5%;
+    padding-top: 80px;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .hero-text { animation: fadeUp 0.8s ease both; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.3rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-role {
+    font-size: 1.1rem;
+    color: var(--mid);
+    font-weight: 300;
+    margin-bottom: 1.8rem;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 440px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--white);
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid var(--border);
+    color: var(--ink);
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: border-color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  .hero-visual {
+    animation: fadeUp 0.8s 0.2s ease both;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stat-card:hover { transform: translateX(6px); box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .stat-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--mid); text-transform: uppercase; letter-spacing: 0.06em; }
+  .stat-value { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); }
+
+  /* SECTIONS */
+  section { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* EXPERIENCE */
+  .exp-grid { display: grid; gap: 1.5rem; }
+  .exp-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .exp-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .exp-logo {
+    width: 52px; height: 52px;
+    border-radius: 12px;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .exp-logo.freelance { background: var(--ink); }
+  .exp-company { font-size: 0.78rem; color: var(--mid); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+  .exp-role { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 400; margin-bottom: 4px; }
+  .exp-period { font-size: 0.82rem; color: var(--mid); margin-bottom: 1rem; }
+  .exp-desc { font-size: 0.92rem; color: var(--mid); line-height: 1.8; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+  .tag {
+    font-size: 0.75rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .tag.dark { background: #F0EEE9; color: var(--mid); }
+
+  /* SKILLS */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .skill-group {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+  }
+  .skill-group:hover { transform: translateY(-3px); }
+  .skill-group-title {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    margin-bottom: 1rem;
+  }
+  .skill-item { display: flex; align-items: center; gap: 8px; margin-bottom: 0.6rem; font-size: 0.9rem; }
+  .skill-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+  .service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .service-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+  .service-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .service-title { font-family: 'Fraunces', serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .service-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.7; }
+
+  /* CONTACT */
+  .contact-wrap {
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .contact-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .contact-title em { font-style: italic; color: #7FA5FF; }
+  .contact-sub { color: #9A9A95; font-size: 0.95rem; line-height: 1.8; }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.9rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-link:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); }
+  .contact-link-icon { font-size: 1.2rem; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+    color: var(--mid);
+    border-top: 1px solid var(--border);
+  }
+
+  /* DIVIDER */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 0 5%; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding-top: 100px; gap: 2.5rem; }
+    .hero-visual { order: -1; }
+    .contact-wrap { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+    .nav-links { display: none; }
+    .exp-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Don.</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="max-width:1200px;margin:0 auto;">
+<div class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Available for freelance</span>
+    <h1 class="hero-name">Software<br><em>Engineer.</em></h1>
+    <p class="hero-role">Accenture · Bangalore, India</p>
+    <p class="hero-desc">I build Python automation tools, AI integrations, and data solutions that help businesses move faster. Currently working at Accenture and open to freelance projects.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">Get in touch</a>
+      <a href="#experience" class="btn-outline">View experience</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="stat-card">
+      <div class="stat-icon">🏢</div>
+      <div>
+        <div class="stat-label">Currently at</div>
+        <div class="stat-value">Accenture</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🐍</div>
+      <div>
+        <div class="stat-label">Primary language</div>
+        <div class="stat-value">Python</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📍</div>
+      <div>
+        <div class="stat-label">Location</div>
+        <div class="stat-value">Bangalore, India</div>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⚡</div>
+      <div>
+        <div class="stat-label">Focus area</div>
+        <div class="stat-value">AI & Automation</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label fade-in">Work history</p>
+  <h2 class="section-title fade-in">Where I've <em>worked</em></h2>
+  <div class="exp-grid">
+
+    <div class="exp-card fade-in">
+      <div class="exp-logo">Ac</div>
+      <div>
+        <div class="exp-company">Accenture</div>
+        <div class="exp-role">Software Engineer — Career Level 12</div>
+        <div class="exp-period">2025 – Present · Bangalore, India</div>
+        <div class="exp-desc">Working in the technology & software engineering domain, contributing to enterprise-level projects. Building and maintaining software solutions while developing expertise in Python development, automation, and AI integration.</div>
+        <div class="exp-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Software Engineering</span>
+          <span class="tag">Enterprise Tech</span>
+          <span class="tag dark">Full-time</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card fade-in">
+      <div class="exp-logo freelance">Fr</div>
+      <div>
+        <div class="exp-company">Freelance</div>
+        <div class="exp-role">Python Developer & AI Solutions</div>
+        <div class="exp-period">2025 – Present · Remote</div>
+        <div class="exp-desc">Offering Python automation, web scraping, and AI integration services to clients globally. Building chatbots, data pipelines, and custom automation scripts that save businesses time and money.</div>
+        <div class="exp-tags">
+          <span class="tag">Python Automation</span>
+          <span class="tag">Web Scraping</span>
+          <span class="tag">AI Chatbots</span>
+          <span class="tag dark">Freelance</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label fade-in">Technical skills</p>
+  <h2 class="section-title fade-in">What I <em>know</em></h2>
+  <div class="skills-grid">
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Languages</div>
+      <div class="skill-item"><span class="skill-dot"></span>Python</div>
+      <div class="skill-item"><span class="skill-dot"></span>SQL</div>
+      <div class="skill-item"><span class="skill-dot"></span>JavaScript (basics)</div>
+      <div class="skill-item"><span class="skill-dot"></span>HTML / CSS</div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Libraries & Frameworks</div>
+      <div class="skill-item"><span class="skill-dot"></span>Pandas / NumPy</div>
+      <div class="skill-item"><span class="skill-dot"></span>BeautifulSoup / Requests</div>
+      <div class="skill-item"><span class="skill-dot"></span>Flask / FastAPI</div>
+      <div class="skill-item"><span class="skill-dot"></span>Scikit-learn</div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">AI & Automation</div>
+      <div class="skill-item"><span class="skill-dot"></span>OpenAI API</div>
+      <div class="skill-item"><span class="skill-dot"></span>LangChain (learning)</div>
+      <div class="skill-item"><span class="skill-dot"></span>Streamlit</div>
+      <div class="skill-item"><span class="skill-dot"></span>Zapier / Make</div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Tools & Platforms</div>
+      <div class="skill-item"><span class="skill-dot"></span>Git / GitHub</div>
+      <div class="skill-item"><span class="skill-dot"></span>VS Code</div>
+      <div class="skill-item"><span class="skill-dot"></span>Postman</div>
+      <div class="skill-item"><span class="skill-dot"></span>Linux / Ubuntu</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-label fade-in">What I offer</p>
+  <h2 class="section-title fade-in">Freelance <em>services</em></h2>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-icon">🤖</div>
+      <div class="service-title">Python Automation</div>
+      <div class="service-desc">File automation, Excel/Google Sheets scripting, scheduled tasks and batch processing for businesses.</div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🕷️</div>
+      <div class="service-title">Web Scraping</div>
+      <div class="service-desc">Extract structured data from any website using Python. Lead generation, price monitoring, research automation.</div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">💬</div>
+      <div class="service-title">AI Chatbot Integration</div>
+      <div class="service-desc">Build and integrate chatbots using OpenAI API into your website or WhatsApp for customer support.</div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📊</div>
+      <div class="service-title">Data Analysis & Dashboards</div>
+      <div class="service-desc">Clean, analyse and visualise your data. Interactive Streamlit dashboards and automated reports.</div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">📄</div>
+      <div class="service-title">PDF & Document Processing</div>
+      <div class="service-desc">Extract tables, text and data from PDFs at scale. Automated invoice and report parsing pipelines.</div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-icon">🔌</div>
+      <div class="service-title">API Integration</div>
+      <div class="service-desc">Connect third-party APIs to your workflow. REST APIs, webhooks, and data pipeline setup.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap fade-in">
+    <div>
+      <h2 class="contact-title">Let's build something <em>together.</em></h2>
+      <p class="contact-sub">Open to freelance Python projects, automation work, and AI integrations. Based in Bangalore, working with clients globally.</p>
+    </div>
+    <div class="contact-links">
+      <a href="mailto:your@email.com" class="contact-link">
+        <span class="contact-link-icon">✉️</span>
+        <span>your@email.com</span>
+      </a>
+      <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+        <span class="contact-link-icon">💻</span>
+        <span>github.com/yourusername</span>
+      </a>
+      <a href="https://fiverr.com/yourusername" class="contact-link" target="_blank">
+        <span class="contact-link-icon">⭐</span>
+        <span>fiverr.com/yourusername</span>
+      </a>
+      <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank">
+        <span class="contact-link-icon">🔗</span>
+        <span>linkedin.com/in/yourusername</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built by Don · Bangalore, India · 2026</p>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
