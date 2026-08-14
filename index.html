@@ -1,16 +1,29 @@
-
+<!--
+  ============================================================
+  donbizservices — Web Developer · Brand Systems
+  Standalone single-file portfolio (HTML + CSS + JS inline)
+  ============================================================
+  How to use:
+    1. Double-click this file to open in any browser, OR
+    2. Upload to any static host (GitHub Pages, Netlify, Vercel,
+       S3, your own server — anywhere).
+    No build step. No dependencies. No internet required
+    (except for Google Fonts, which gracefully falls back to
+    system fonts if offline).
+  ============================================================
+-->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Don — Web Developer · Brand Systems</title>
-  <meta name="description" content="Don — Web Developer building websites and digital systems that elevate brand identity. Based in Bangalore, working with brands worldwide." />
-  <meta name="keywords" content="Don, Web Developer, Brand Systems, Website Developer, Brand Identity, Freelance Web Developer, Bangalore, Next.js Developer" />
+  <title>donbizservices — Web Developer · Brand Systems</title>
+  <meta name="description" content="donbizservices@gmail.com — Web Developer building websites and digital systems that elevate brand identity. Working with brands worldwide." />
+  <meta name="keywords" content="donbizservices@gmail.com, Web Developer, Brand Systems, Website Developer, Brand Identity, Freelance Web Developer, Next.js Developer" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Don — Web Developer · Brand Systems" />
+  <meta property="og:title" content="donbizservices — Web Developer · Brand Systems" />
   <meta property="og:description" content="Websites and digital systems that elevate how brands are seen, felt, and remembered." />
   <meta property="og:type" content="website" />
 
@@ -22,7 +35,7 @@
   <!-- Styles (inline) -->
   <style>
 /* =================================================================
-   Don — Static Portfolio
+   donbizservices@gmail.com — Static Portfolio
    Editorial-luxury design system
    ================================================================= */
 
@@ -1038,44 +1051,6 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   color: var(--ink-soft);
 }
 
-/* ============================ CAPABILITIES ============================ */
-.cap-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-@media (min-width: 768px) { .cap-grid { grid-template-columns: 1fr 1fr; } }
-.cap-card {
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: 1rem;
-  background: var(--white);
-  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.3s;
-}
-@media (min-width: 768px) { .cap-card { padding: 2rem; } }
-.cap-card:hover { transform: translateY(-2px); border-color: rgba(27,59,47,0.4); }
-.cap-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 1.5rem;
-}
-.cap-head h3 { font-size: 1.25rem; font-weight: 500; }
-@media (min-width: 768px) { .cap-head h3 { font-size: 1.5rem; } }
-.cap-list { display: flex; flex-direction: column; }
-.cap-list li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.875rem;
-  color: var(--ink-soft);
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--line-soft);
-}
-@media (min-width: 768px) { .cap-list li { font-size: 1rem; } }
-.cap-list li:last-child { border-bottom: none; padding-bottom: 0; }
-.cap-list li::after { content: "✦"; color: var(--forest); font-size: 0.75rem; font-family: monospace; }
-
 /* ============================ SERVICES ============================ */
 .services-grid {
   display: grid;
@@ -1158,80 +1133,85 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 .testi-author { font-size: 0.875rem; font-weight: 500; color: var(--ink); }
 .testi-company { font-size: 0.75rem; color: var(--mid); margin-top: 0.125rem; }
 
-/* ============================ FEATURED TESTIMONIAL ============================ */
-.featured-testimonial {
-  max-width: 42rem;
-  margin: 0 auto;
-  text-align: center;
-  padding: 1rem 0;
+/* ============================ WHATSAPP TESTIMONIAL ============================ */
+.wa-testimonial-wrap { display: flex; justify-content: center; }
+.wa-card {
+  max-width: 38rem;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--white);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(22, 20, 15, 0.06);
 }
-.testi-quote-mark {
-  font-family: 'Fraunces', serif;
+.wa-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--forest);
+  color: var(--paper);
+}
+.wa-header-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wa-header-icon svg { opacity: 0.9; }
+.wa-header-name { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.01em; }
+.wa-header-sub { font-size: 0.7rem; opacity: 0.6; margin-top: 0.1rem; }
+.wa-body {
+  padding: 2rem 1.75rem 1.75rem;
+  background: var(--white);
+  position: relative;
+}
+.wa-body::before {
+  content: "“";
+  position: absolute;
+  top: 0.75rem;
+  left: 1.25rem;
+  font-family: 'Fraunces', Georgia, serif;
   font-size: 4rem;
   line-height: 1;
-  color: var(--forest);
+  color: var(--gold);
   opacity: 0.25;
-  margin-bottom: -0.5rem;
-  display: block;
+  pointer-events: none;
 }
-.testi-quote-mark-mobile { display: block; }
-.testi-quote-mark-desktop { display: none; }
-@media (min-width: 768px) {
-  .testi-quote-mark-mobile { display: none; }
-  .testi-quote-mark-desktop { display: block; }
-  .testi-quote-mark { font-size: 5.5rem; margin-bottom: -0.75rem; }
-}
-.featured-testimonial blockquote {
-  font-family: 'Fraunces', serif;
-  font-size: 1.125rem;
-  font-weight: 300;
-  font-style: italic;
+.wa-message {
+  font-size: 0.95rem;
   line-height: 1.8;
   color: var(--ink-soft);
-  max-width: 36rem;
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  padding-top: 0.25rem;
 }
-@media (min-width: 768px) {
-  .featured-testimonial blockquote { font-size: 1.375rem; line-height: 1.75; }
+.wa-message-time {
+  text-align: right;
+  font-size: 0.7rem;
+  color: var(--mid-light);
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line-soft);
 }
-.testi-source-badge {
+.wa-footer-badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  margin-top: 2rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 2rem;
-  background: var(--forest-soft);
-  color: var(--forest);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  gap: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--mid-light);
+  background: var(--paper-2);
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  margin-top: 0.5rem;
 }
-.testi-source-badge svg { opacity: 0.7; }
-.testi-attribution {
-  margin-top: 1.75rem;
-}
-.testi-attr-name {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--ink);
-}
-.testi-attr-role {
-  font-size: 0.8rem;
-  color: var(--mid);
-  margin-top: 0.2rem;
-}
+.wa-footer-badge svg { opacity: 0.5; }
+
 @media (min-width: 768px) {
-  .testi-attr-name { font-size: 1.1rem; }
-  .testi-attr-role { font-size: 0.85rem; }
-}
-.testi-attr-line {
-  width: 2rem;
-  height: 1px;
-  background: var(--gold);
-  margin: 0.75rem auto 0;
+  .wa-card { max-width: 42rem; }
+  .wa-body { padding: 2.25rem 2rem 2rem; }
+  .wa-message { font-size: 1rem; }
 }
 
 /* ============================ CONTACT ============================ */
@@ -1459,6 +1439,146 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
   html { scroll-behavior: auto; }
 }
 
+
+/* =================================================================
+   Pricing Section
+   ================================================================= */
+.pricing-intro {
+  color: var(--mid);
+  max-width: 560px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .pricing-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-card-featured { grid-row: 1 / 3; grid-column: 2; }
+}
+
+@media (min-width: 1024px) {
+  .pricing-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .pricing-card-featured { grid-row: auto; grid-column: auto; }
+}
+
+.pricing-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(22, 20, 15, 0.08);
+}
+
+.pricing-card-featured {
+  border: 2px solid var(--gold);
+  position: relative;
+  box-shadow: 0 8px 32px rgba(168, 131, 65, 0.12);
+}
+
+.pricing-card-featured:hover {
+  box-shadow: 0 12px 40px rgba(168, 131, 65, 0.18);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 1rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.pricing-card-head {
+  margin-bottom: 1.5rem;
+}
+
+.pricing-tier {
+  display: block;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pricing-tagline {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--mid);
+  margin-top: 0.35rem;
+  line-height: 1.5;
+}
+
+.pricing-amount {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.pricing-currency {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--mid);
+}
+
+.pricing-value {
+  font-size: 2.75rem;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.pricing-features {
+  flex: 1;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.pricing-features li svg {
+  flex-shrink: 0;
+  color: var(--forest);
+}
+
+.pricing-card-featured .pricing-features li svg {
+  color: var(--gold);
+}
+
+.pricing-btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
   </style>
 
   <!-- Favicon (inline SVG) -->
@@ -1470,15 +1590,15 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
     <header id="nav">
       <div class="nav-inner">
         <a href="#" class="nav-logo">
-          <span class="serif">Don<span class="italic-accent">.</span></span>
-          <span class="nav-tag">Web Developer</span>
+          <span class="serif" style="font-size:0.85em;">donbizservices@gmail.com</span>
+          <span class="nav-tag">donbizservices</span>
         </a>
         <nav class="nav-links">
           <a href="#about">About</a>
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
-          <a href="#capabilities">Capabilities</a>
           <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
           <a href="#contact">Contact</a>
         </nav>
         <div class="nav-actions">
@@ -1496,8 +1616,8 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
         <a href="#about">About</a>
         <a href="#work">Work</a>
         <a href="#experience">Experience</a>
-        <a href="#capabilities">Capabilities</a>
         <a href="#services">Services</a>
+        <a href="#pricing">Pricing</a>
         <a href="#contact">Contact</a>
         <a href="#contact" class="mobile-cta"><span class="status-dot"></span> Available for work</a>
       </nav>
@@ -1512,7 +1632,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
             Portfolio · 2026 Edition
           </div>
           <div class="meta-right">
-            <span>Bangalore · India</span>
+            <span>Available Worldwide</span>
             <span>IST · UTC+5:30</span>
             <span>v3.0</span>
           </div>
@@ -1520,50 +1640,28 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 
         <div class="hero-grid">
           <div class="hero-left reveal">
-            <p class="eyebrow-accent">Web Developer · Brand Systems</p>
+            <p class="eyebrow-accent">donbizservices · Brand Systems</p>
             <h1 class="hero-title serif">
-              Don<span class="italic-accent">.</span><br />
-              Builder of<br />
-              <em class="italic-accent">brand</em> systems.
+              Your Business Deserves a<br />
+              Website That <em class="italic-accent">Sells</em><br />
+              Like <em class="italic-accent">Crazy.</em>
             </h1>
             <p class="hero-lead">
-              I build <em class="serif italic-ink">websites and digital systems</em> that elevate how brands are seen, felt, and remembered. From the first pixel to the production deploy, every detail is engineered to make your identity unmistakable. Currently a software engineer at a global IT services firm. Selectively taking on freelance work for brands worldwide.
+              I build <em class="serif italic-ink">websites and digital systems</em> that convert visitors into clients. I ship fast, I ship polished, and I don't stop until every interaction on the page earns its place. My clients don't get templates — they get a digital presence built to outperform.
             </p>
             <div class="hero-cta">
-              <a href="#contact" class="btn-primary">
-                Start a project
+              <a href="#pricing" class="btn-primary">
+                See Pricing
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
               </a>
-              <a href="#work" class="btn-outline">
-                View selected work
+              <a href="mailto:donbizservices@gmail.com?subject=Project%20Inquiry&body=Hi%2C%20I%27d%20like%20to%20discuss%20a%20project.%20Here%27s%20a%20bit%20about%20what%20I%27m%20building%3A%20" class="btn-outline">
+                Book a Call
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
               </a>
             </div>
           </div>
 
           <div class="hero-right reveal">
-            <div class="spec-card">
-              <div class="spec-header">
-                <div>
-                  <div class="spec-monogram serif">D<span class="italic-gold">.</span></div>
-                  <div class="spec-label">Curriculum Vitae</div>
-                </div>
-                <div class="spec-status">
-                  <div class="spec-label">Status</div>
-                  <div class="spec-status-val"><span class="status-dot"></span> Open</div>
-                </div>
-              </div>
-              <div class="spec-rows">
-                <div class="spec-row"><span class="spec-key"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg> Currently</span><span class="spec-val">Software Engineer</span></div>
-                <div class="spec-row"><span class="spec-key"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Primary stack</span><span class="spec-val">Astro · Next.js · n8n</span></div>
-                <div class="spec-row"><span class="spec-key"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Location</span><span class="spec-val">Bangalore, India</span></div>
-                <div class="spec-row"><span class="spec-key"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Engagement</span><span class="spec-val">Freelance worldwide</span></div>
-              </div>
-              <div class="spec-footer">
-                <span>Est. 2024</span>
-                <span class="forest-text">· No.001</span>
-              </div>
-            </div>
             <div class="stat-row">
               <div class="stat-tile"><div class="stat-val serif">1</div><div class="stat-label">Flagship client, live</div></div>
               <div class="stat-tile"><div class="stat-val serif">2+</div><div class="stat-label">Years building</div></div>
@@ -1629,18 +1727,19 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
         <div class="about-grid reveal">
           <div class="about-left">
             <p class="lead-serif serif">
-              I believe the best websites are <em class="italic-accent">invisible</em> — they disappear into the brand, letting identity do the talking. For three years I've been building exactly that: websites and digital systems that don't just represent a brand, but become part of it.
+            <p class="lead-serif serif">
+              The best brand websites don't draw attention to themselves. They disappear into the brand — typography, spacing, motion, every detail working so the visitor feels the identity, not the layout.
             </p>
             <p class="body-text">
-              My work lives at the intersection of engineering discipline and brand craft. In my full-time role, I contribute to enterprise-grade software systems serving thousands of users. After hours, I run an independent practice building websites and automation for clinics and local businesses — starting with a full local-SEO marketing site for a multi-doctor dental practice in Kerala, and taking on new work from there.
+              I build those websites. My work sits at the intersection of engineering precision and brand intuition — I read a brief the way a creative director reads a mood board, then I execute it the way a senior engineer ships production code. I've built local-SEO marketing sites for multi-doctor dental practices, and I'm building more for brands that understand the difference between a website and a digital asset.
             </p>
             <p class="body-text">
-              If you are hiring someone to build the digital face of your brand — to read the brief, design with intention, code with care, and treat your identity as their own — we should talk.
+              If your brand needs a digital presence that performs — not just looks — that's my work. Tell me what you're building, and I'll show you what it looks like when it's done right.
             </p>
             <div class="signature">
-              <div class="sig-name serif italic-accent">Don</div>
+              <div class="sig-name serif italic-accent" style="font-size:0.75em;">donbizservices@gmail.com</div>
               <div class="sig-meta">
-                Web Developer<br />Bangalore, India
+                donbizservices
               </div>
             </div>
           </div>
@@ -1723,7 +1822,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
                 <div class="case-meta-strip">
                   <div class="meta-item"><div class="meta-key">Client</div><div class="meta-val">Dental Clinic, Kerala</div></div>
                   <div class="meta-item"><div class="meta-key">Role</div><div class="meta-val">Web Developer</div></div>
-                  <div class="meta-item"><div class="meta-key">Timeline</div><div class="meta-val">6 weeks</div></div>
+                  <div class="meta-item"><div class="meta-key">Timeline</div><div class="meta-val">1–2 weeks</div></div>
                   <div class="meta-item"><div class="meta-key">Stack</div><div class="meta-val">Astro · Tailwind · Local SEO · WhatsApp API</div></div>
                 </div>
                 <div class="case-cta">
@@ -1740,124 +1839,6 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
       </div>
     </section>
 
-    <!-- ============================ EXPERIENCE ============================ -->
-    <section id="experience" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head-left">
-            <span class="section-num">03</span>
-            <span class="eyebrow-accent">Experience</span>
-          </div>
-          <div class="section-head-line"></div>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" class="section-head-spark"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>
-        </div>
-        <h2 class="section-title serif reveal">Where I've <em class="italic-accent">worked.</em></h2>
-
-        <div class="exp-stack reveal">
-          <article class="exp-card">
-            <div class="exp-logo-wrap">
-              <div class="exp-logo" style="background:var(--forest);">SE</div>
-              <div class="exp-type">Full-time</div>
-            </div>
-            <div class="exp-body">
-              <div class="exp-co">Global IT Services Firm</div>
-              <h3 class="exp-role serif">Software Engineer</h3>
-              <div class="exp-meta">
-                <span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2025 — Present</span>
-                <span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bangalore, India</span>
-              </div>
-              <p class="exp-desc">Contributing to enterprise-grade software systems in the technology & software engineering practice. Building and maintaining web applications and internal platforms at scale, developing expertise in modern web stacks, design systems, and full-stack delivery that serves thousands of internal and external users.</p>
-            </div>
-            <div class="exp-tags">
-              <span class="tag">Web Development</span>
-              <span class="tag">Software Engineering</span>
-              <span class="tag">Enterprise Tech</span>
-              <span class="tag">Full-stack</span>
-            </div>
-          </article>
-
-          <article class="exp-card">
-            <div class="exp-logo-wrap">
-              <div class="exp-logo" style="background:var(--ink);">Fr</div>
-              <div class="exp-type">Independent</div>
-            </div>
-            <div class="exp-body">
-              <div class="exp-co">Freelance Practice</div>
-              <h3 class="exp-role serif">Web Developer · Brand Systems</h3>
-              <div class="exp-meta">
-                <span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 2024 — Present</span>
-                <span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Remote · Worldwide</span>
-              </div>
-              <p class="exp-desc">Building websites and automation for clinics and local businesses, starting close to home in Kerala. Flagship engagement: a full local-SEO marketing site for White Dental Care, a multi-doctor dental practice in Velur, Thrissur — built to convert local search traffic into calls and WhatsApp bookings. Actively taking on new clients.</p>
-            </div>
-            <div class="exp-tags">
-              <span class="tag">Brand Websites</span>
-              <span class="tag">Local SEO</span>
-              <span class="tag">WhatsApp Automation</span>
-              <span class="tag">Small Business</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================ CAPABILITIES ============================ -->
-    <section id="capabilities" class="section">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="section-head-left">
-            <span class="section-num">04</span>
-            <span class="eyebrow-accent">Capabilities</span>
-          </div>
-          <div class="section-head-line"></div>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" class="section-head-spark"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>
-        </div>
-        <h2 class="section-title serif reveal">The <em class="italic-accent">toolkit.</em></h2>
-
-        <div class="cap-grid reveal">
-          <div class="cap-card">
-            <div class="cap-head"><h3 class="serif">Frontend</h3><span class="section-num">· 01</span></div>
-            <ul class="cap-list">
-              <li>Astro</li>
-              <li>Next.js</li>
-              <li>React</li>
-              <li>Tailwind CSS</li>
-              <li>GitHub Pages</li>
-            </ul>
-          </div>
-          <div class="cap-card">
-            <div class="cap-head"><h3 class="serif">Automation & Data</h3><span class="section-num">· 02</span></div>
-            <ul class="cap-list">
-              <li>n8n</li>
-              <li>WhatsApp Cloud API</li>
-              <li>Twilio</li>
-              <li>Supabase</li>
-              <li>Python</li>
-            </ul>
-          </div>
-          <div class="cap-card">
-            <div class="cap-head"><h3 class="serif">AI & Search</h3><span class="section-num">· 03</span></div>
-            <ul class="cap-list">
-              <li>Groq</li>
-              <li>LangChain</li>
-              <li>RAG Pipelines</li>
-              <li>Local SEO</li>
-              <li>Prompt Engineering</li>
-            </ul>
-          </div>
-          <div class="cap-card">
-            <div class="cap-head"><h3 class="serif">Platforms & Tools</h3><span class="section-num">· 04</span></div>
-            <ul class="cap-list">
-              <li>Vercel</li>
-              <li>Hostinger</li>
-              <li>Streamlit Cloud</li>
-              <li>Git / GitHub</li>
-              <li>Figma</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- ============================ SERVICES ============================ -->
     <section id="services" class="section">
@@ -1937,12 +1918,102 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
       </div>
     </section>
 
+    <!-- ============================ PRICING ============================ -->
+    <section id="pricing" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="section-head-left">
+            <span class="section-num">06</span>
+            <span class="eyebrow-accent">Pricing</span>
+          </div>
+          <div class="section-head-line"></div>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" class="section-head-spark"><path d="M12 3l1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3z"/></svg>
+        </div>
+        <h2 class="section-title serif reveal">Transparent <em class="italic-accent">pricing.</em></h2>
+        <p class="pricing-intro reveal">No hidden fees. No surprises. Pick the tier that fits your project, then book a free consultation so I can learn about your business and we can align on scope before any work begins.</p>
+
+        <div class="pricing-grid reveal">
+
+          <!-- Starter -->
+          <div class="pricing-card">
+            <div class="pricing-card-head">
+              <span class="pricing-tier">Starter</span>
+              <span class="pricing-tagline">For small businesses ready to look professional</span>
+            </div>
+            <div class="pricing-amount">
+              <span class="pricing-currency">$</span><span class="pricing-value serif">897</span>
+            </div>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Up to 5 pages</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Mobile-responsive design</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Basic SEO setup</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Contact form integration</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 1 round of revisions</li>
+            </ul>
+            <span class="pricing-tagline" style="margin-top:0.5rem;">Delivered in 1–2 weeks</span>
+            <a href="mailto:donbizservices@gmail.com?subject=Starter%20Package%20Inquiry&body=Hi%2C%20I%27m%20interested%20in%20the%20Starter%20package.%20Here%27s%20a%20bit%20about%20my%20project%3A%20" class="btn-outline pricing-btn">
+              Book Starter Consultation
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Professional (Most Popular) -->
+          <div class="pricing-card pricing-card-featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-card-head">
+              <span class="pricing-tier">Professional</span>
+              <span class="pricing-tagline">For brands that need to stand out and convert</span>
+            </div>
+            <div class="pricing-amount">
+              <span class="pricing-currency">$</span><span class="pricing-value serif">2,097</span>
+            </div>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Up to 12 pages</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom design system</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Advanced SEO + analytics</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> CMS integration</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 3 rounds of revisions</li>
+            </ul>
+            <a href="mailto:donbizservices@gmail.com?subject=Professional%20Package%20Inquiry&body=Hi%2C%20I%27m%20interested%20in%20the%20Professional%20package.%20Here%27s%20a%20bit%20about%20my%20project%3A%20" class="btn-primary pricing-btn">
+            <span class="pricing-tagline" style="margin-top:0.5rem;">Delivered in 2–3 weeks</span>
+              Book Professional Consultation
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+
+          <!-- Premium -->
+          <div class="pricing-card">
+            <div class="pricing-card-head">
+              <span class="pricing-tier">Premium</span>
+              <span class="pricing-tagline">For businesses that need a complete digital engine</span>
+            </div>
+            <div class="pricing-amount">
+              <span class="pricing-currency">$</span><span class="pricing-value serif">4,497</span>
+            </div>
+            <ul class="pricing-features">
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Unlimited pages</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Full brand system + guidelines</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> E-commerce / web app build</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Custom animations & interactions</li>
+              <li><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Priority support + 30-day post-launch</li>
+            </ul>
+            <a href="mailto:donbizservices@gmail.com?subject=Premium%20Package%20Inquiry&body=Hi%2C%20I%27m%20interested%20in%20the%20Premium%20package.%20Here%27s%20a%20bit%20about%20my%20project%3A%20" class="btn-outline pricing-btn">
+            <span class="pricing-tagline" style="margin-top:0.5rem;">Delivered in 4–6 weeks</span>
+              Book Premium Consultation
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ============================ TESTIMONIALS ============================ -->
     <section id="testimonials" class="section">
       <div class="container">
         <div class="section-head reveal">
           <div class="section-head-left">
-            <span class="section-num">06</span>
+            <span class="section-num">07</span>
             <span class="eyebrow-accent">Testimonials</span>
           </div>
           <div class="section-head-line"></div>
@@ -1950,20 +2021,26 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
         </div>
         <h2 class="section-title serif reveal">In their <em class="italic-accent">words.</em></h2>
 
-        <div class="featured-testimonial reveal">
-          <span class="testi-quote-mark testi-quote-mark-mobile">&ldquo;</span>
-          <span class="testi-quote-mark testi-quote-mark-desktop">&ldquo;</span>
-          <blockquote>
-            Working with Don transformed our online presence completely. He designed a sleek, modern website that makes it effortless for our patients to explore treatments and book appointments online. The layout perfectly captures the welcoming atmosphere of our practice. I couldn&rsquo;t be happier with the final result!
-          </blockquote>
-          <div class="testi-source-badge">
-            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.612.638l4.694-1.228A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 01-5.39-1.587l-.376-.227-2.738.716.746-2.613-.25-.411A9.96 9.96 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-            via WhatsApp
-          </div>
-          <div class="testi-attribution">
-            <div class="testi-attr-name">Dr. Edbert Simon</div>
-            <div class="testi-attr-role">White Dental Care</div>
-            <div class="testi-attr-line"></div>
+        <div class="wa-testimonial-wrap reveal">
+          <div class="wa-card">
+            <div class="wa-header">
+              <div class="wa-header-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <div>
+                <div class="wa-header-name">Dr. Edbert Simon · White Dental Care</div>
+                <div class="wa-header-sub">Client via WhatsApp</div>
+              </div>
+            </div>
+            <div class="wa-body">
+              <p class="wa-message">Working with Don transformed our online presence completely. He designed a sleek, modern website that makes it effortless for our patients to explore treatments and book appointments online. The layout perfectly captures the welcoming atmosphere of our practice. I couldn’t be happier with the final result!</p>
+              <div class="wa-message-time">
+                <div class="wa-footer-badge">
+                  <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  Verified client review
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1977,19 +2054,19 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
             <div class="contact-left">
               <div class="contact-eyebrow">
                 <span class="status-dot"></span>
-                07 — Contact
+                08 — Contact
               </div>
               <h2 class="contact-title serif">Let's build your<br /><em class="italic-accent-light">brand's home.</em></h2>
-              <p class="contact-sub">Open to freelance brand website projects, web app builds, e-commerce storefronts, and design-system engagements. Based in Bangalore, working with brands globally. Reply within 24 hours.</p>
-              <a href="mailto:donpd95@gmail.com" class="btn-light">
+              <p class="contact-sub">Open to freelance brand website projects, web app builds, e-commerce storefronts, and design-system engagements. Working with brands globally. Reply within 24 hours. <a href="#pricing" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;">Prefer to see pricing first? View plans →</a></p>
+              <a href="mailto:donbizservices@gmail.com" class="btn-light">
                 Start a conversation
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
               </a>
             </div>
             <div class="contact-right">
-              <a href="mailto:donpd95@gmail.com" class="contact-link">
+              <a href="mailto:donbizservices@gmail.com" class="contact-link">
                 <div class="contact-link-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-                <div class="contact-link-body"><div class="contact-link-label">Email</div><div class="contact-link-val">donpd95@gmail.com</div></div>
+                <div class="contact-link-body"><div class="contact-link-label">Email</div><div class="contact-link-val">donbizservices@gmail.com</div></div>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" class="contact-link-arrow"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
               </a>
               <a href="https://github.com/don-pd" target="_blank" rel="noopener" class="contact-link">
@@ -2010,7 +2087,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
               <div class="contact-availability">
                 <div>
                   <div class="contact-avail-label">Local time</div>
-                  <div class="contact-avail-val">Bangalore · IST</div>
+                  <div class="contact-avail-val">IST</div>
                 </div>
                 <div class="contact-avail-right">
                   <div class="contact-avail-label">Availability</div>
@@ -2028,8 +2105,8 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <div class="footer-logo serif">Don<span class="italic-accent">.</span></div>
-            <p class="footer-tag">Web developer building websites and digital systems that elevate brand identity. Bangalore-based, globally available.</p>
+            <div class="footer-logo serif" style="font-size:0.7em;line-height:1.4;">donbizservices@gmail.com</div>
+            <p class="footer-tag">Web developer building websites and digital systems that elevate brand identity. Globally available.</p>
           </div>
           <div class="footer-col">
             <div class="footer-col-head">Navigate</div>
@@ -2038,13 +2115,14 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
               <li><a href="#work">Work</a></li>
               <li><a href="#experience">Experience</a></li>
               <li><a href="#services">Services</a></li>
+              <li><a href="#pricing">Pricing</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <div class="footer-col-head">Elsewhere</div>
             <ul>
-              <li><a href="mailto:donpd95@gmail.com">Email →</a></li>
+              <li><a href="mailto:donbizservices@gmail.com">Email →</a></li>
               <li><a href="https://github.com/don-pd" target="_blank" rel="noopener">GitHub →</a></li>
               <li><a href="https://www.linkedin.com/in/don-p-d" target="_blank" rel="noopener">LinkedIn →</a></li>
               <li><a href="https://www.fiverr.com/don_p_d/" target="_blank" rel="noopener">Fiverr →</a></li>
@@ -2052,7 +2130,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
           </div>
         </div>
         <div class="footer-bottom">
-          <div class="footer-copy">© 2026 Don · Bangalore, India · All rights reserved</div>
+          <div class="footer-copy">© 2026 donbizservices@gmail.com · All rights reserved</div>
           <div class="footer-meta">
             <span>v3.0 · Editorial Edition</span>
             <span class="dot-sep">·</span>
@@ -2065,7 +2143,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 
   <script>
 /* =================================================================
-   Don — Static Portfolio
+   donbizservices@gmail.com — Static Portfolio
    Interactivity: nav scroll, mobile menu, reveal animations
    ================================================================= */
 (function () {
@@ -2154,7 +2232,7 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 
   /* ---- Active nav link based on scroll position ---- */
   var navLinks = document.querySelectorAll('.nav-links a');
-  var sections = ['about', 'work', 'experience', 'capabilities', 'services', 'contact']
+  var sections = ['about', 'work', 'experience', 'services', 'pricing', 'contact']
     .map(function (id) { return document.getElementById(id); })
     .filter(Boolean);
 
